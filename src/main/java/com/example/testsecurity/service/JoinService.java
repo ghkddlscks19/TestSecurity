@@ -18,6 +18,10 @@ public class JoinService {
     public void joinProcess(JoinDto joinDto) {
 
         //db에 동일한 username을 가진 회원이 존재하는지 검증
+        boolean isUser = userRepository.existsByUsername(joinDto.getUsername());
+        if (isUser) {
+            return;
+        }
 
         User user = new User();
         user.setUsername(joinDto.getUsername());
