@@ -39,6 +39,18 @@ public class SecurityConfig {
                         .disable()
                 );
 
+        http
+                .sessionManagement((auth) -> auth
+                        .maximumSessions(1)
+                        .maxSessionsPreventsLogin(true)
+                );
+
+        http
+                .sessionManagement((auth) -> auth
+                        .sessionFixation()
+                        .changeSessionId()
+                );
+
         return http.build();
     }
 }
