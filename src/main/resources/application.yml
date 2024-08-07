@@ -12,6 +12,11 @@ spring:
     properties:
       hibernate.format_sql: true
 
+  mustache:
+    servlet:
+      expose-request-attributes: true
+
+
 server:
   servlet:
     encoding:
